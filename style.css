@@ -1,0 +1,19 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+body{
+    background:black;
+    font-family: Consolas, monaco, monospace;
+    color:ivory;
+}
+mychart{
+    width:200px;height:100px;position:fixed;left:30%;
+}
+canvas {
+  border:2px solid white;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(57%, 13%);
+}

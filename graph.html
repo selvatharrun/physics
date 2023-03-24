@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jscharting.com/3.0.1/jscharting.js"></script>
+    <div id="chart_container" style="height:300px;width:450px;position:fixed;left:90px;top:12%;"> </div>
+    <div id="chart_container1" style="height:300px;width:100%;position:fixed;left:5%;top:65%;"> </div>
+
+    <style>
+        body {
+            background: black;
+            font-family: Consolas, monaco, monospace;
+            color: ivory;
+        }
+
+        .line {
+            position: fixed;
+            height: 100%;
+            background: ivory;
+            width: 2px;
+            left: 60%;
+        }
+    </style>
+
+    <script>
+        //length vs time
+        var myData = [];
+        for (var j = 0; j < 100; j++) {
+            myData.push([j, 2 * 3.14 * (Math.sqrt(j / 9.8))]);
+        }
+
+        var myChart = new JSC.Chart('chart_container', {
+            type: 'line',
+            series: [{
+                points: myData
+            }]
+        });
+        //ke vs pe
+        var myData1 = [];
+        for (var j = 0; j < 50; j++) {
+            myData1.push([j, 0.32 * Math.cos(4.43 * j)]);
+        }
+
+        var myData2 = [];
+        for (var j = 0; j < 50; j++) {
+            myData2.push([j, Math.sin(j)]);
+        }
+
+        var myChart = new JSC.Chart('chart_container1', {
+            type: 'line',
+            series: [{
+                name: "ke",
+                points: myData1
+            },
+            {
+                name: "pe",
+                points: myData2
+            }]
+        });
+    </script>
+
+    <div class="line"></div>
+    <h1 style="position:fixed;top:10px;left:5%;">length v time graph</h1>
+    <h1 style="position:fixed;left:5%;top:52%;"> K.E vs P.E graph </h1>
+    <h1 style="position:fixed;top:4%;left:65%;"> formulas used: </h1>
+    <div style="position:fixed; top:14%; left:65%;">
+        <p>damping: 0.9995 - (0.0005 x mass of bob)</p>
+        <p>angular velocity: sqrt(acceleration due to gravity/length
+            of pendulum)</p>
+        <p>time taken: 2 x pi x sqrt(length of pendulum / acceleration due to gravity)</p>
+    </div>
+</body>
+
+</html>
